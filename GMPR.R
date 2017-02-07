@@ -2,7 +2,7 @@
 # Version: 0.1
 # Authors: Jun Chen (chen.jun2@mayo.edu)
 # Date: 2017/02/07
-# Description: The function calculates the normalizing factors for microbiome sequencing data or generally zeroinflated sequencing data. 
+# Description: The function calculates the normalizing factors for microbiome sequencing data or other zeroinflated sequencing data. 
 # The size factors can be used as offsets in count-based regression models or as devisors to produce normalized data
 
 
@@ -54,10 +54,10 @@ GMPR <- function (comm, intersect.no=4) {
 	
 	if (sum(is.na(gmpr))) {
 		warning(paste0('The following samples\n ', paste(colnames(comm)[is.na(gmpr)], collapse='\n'), 
-						'\ndo not share at least ', intersect.no, ' common taxa with the rest samples! ',
-						'For these samples, their size factors are set to be NA! \n', 
-						'You may consider removing these samples since they are potentially outliers or negative controls!\n',
-						'You may also consider decreasing the minimum number of intersecting taxa and rerun the procedure!\n'))
+				'\ndo not share at least ', intersect.no, ' common taxa with the rest samples! ',
+				'For these samples, their size factors are set to be NA! \n', 
+				'You may consider removing these samples since they are potentially outliers or negative controls!\n',
+				'You may also consider decreasing the minimum number of intersecting taxa and rerun the procedure!\n'))
 	}
 	
 	cat('Completed!\n')
