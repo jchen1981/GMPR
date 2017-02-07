@@ -3,11 +3,10 @@
 # Authors: Jun Chen (chen.jun2@mayo.edu)
 # Date: 2017/02/07
 # Description: The function calculates the normalizing factors for microbiome sequencing data or other zeroinflated sequencing data. 
-# The size factors can be used as offsets in count-based regression models or as devisors to produce normalized data
+# The size factors can be used as offsets in count-based regression models or as dvisors to produce normalized data
 
 
 require(matrixStats)
-
 GMPR <- function (comm, intersect.no=4) {
 	# Computes the GMPR size factor
 	#
