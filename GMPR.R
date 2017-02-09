@@ -1,4 +1,4 @@
-# Title: Geometric Mean of Pairwise Ratios (GMPR) for Microbiome Sequencing data
+# Title: Geometric Mean of Pairwise Ratios (GMPR) for Microbiome Sequencing data normalization
 # Version: 0.1
 # Authors: Jun Chen (chen.jun2@mayo.edu)
 # Date: 2017/02/07
