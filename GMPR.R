@@ -2,23 +2,28 @@
 # Version: 0.1
 # Authors: Jun Chen (chen.jun2@mayo.edu)
 # Date: 2017/02/07
-# Description: The function calculates the normalizing factors for microbiome sequencing data or other zeroinflated sequencing data. 
-# The size factors can be used as offsets in count-based regression models or as dvisors to produce normalized data
+# Description: The function calculates the normalizing factors for microbiome sequencing data or generally zeroinflated sequencing data. 
+# The size factors can be used as offsets in count-based regression models or as devisors to produce normalized data
 
 
 require(matrixStats)
-GMPR <- function (comm, intersect.no=4) {
+
+GMPR <- function (comm, intersect.no=4, ct.min=3) {
 	# Computes the GMPR size factor
 	#
 	# Args:
 	#   comm: a matrix of counts, row - features (OTUs, genes, etc) , column - sample
 	#   intersect.no: the minimum number of shared features between sample pair, where the ratio is calculated
+	#   ct.min: the minimum number of counts required to calculate ratios
 
 	#
 	# Returns:
 	#   a list that contains:
 	#      gmpr： the GMPR size factors for all samples; Samples with distinct sets of features will be output as NA.
 	#      nss:   number of samples with significant sharing (> intersect.no) including itself
+	
+	# mask counts < ct.min
+	comm[comm < ct.min] <- 0
 	
 	if (is.null(colnames(comm))) {
 		colnames(comm) <- paste0('S', 1:ncol(comm))
