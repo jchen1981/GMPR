@@ -8,7 +8,7 @@
 
 require(matrixStats)
 
-GMPR <- function (comm, intersect.no=4, ct.min=4) {
+GMPR <- function (comm, intersect.no=4, ct.min=2) {
 	# Computes the GMPR size factor
 	#
 	# Args:
