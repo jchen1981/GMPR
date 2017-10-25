@@ -19,7 +19,7 @@ gmpr.size.factor <- GMPR(otu.tab)$gmpr
 # Two potential applications of GMPR size factors
 
 ###########################################################################################################
-# Application 1: Count are normalized by size factors to reduce the variation due to different library sizes
+# Application 1: Counts are normalized by size factors to reduce the variation due to different library sizes
 # The normalized counts are subject to further downstream analysis such as ordination (PCA, PCoA), clustering,
 # and other multivariate methods. Note that further data transformation such as VST transformation (DESeq2)
 # may be needed in order to reveal patterns. Here shows an example of BC distance based ordination 
