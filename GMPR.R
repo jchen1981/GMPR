@@ -67,5 +67,8 @@ GMPR <- function (comm, intersect.no=4, ct.min=2) {
 	cat('Completed!\n')
 	cat('Please watch for the samples with limited sharing with other samples based on NSS! They may be outliers! \n')
 	names(gmpr) <- names(comm.no) <- colnames(comm)
-	return(list(gmpr=gmpr, nss=comm.no))
+	
+	attr(gmpr, 'NSS') <- comm.no
+	
+	return(gmpr)
 }
