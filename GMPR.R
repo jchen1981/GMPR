@@ -18,9 +18,8 @@ GMPR <- function (comm, intersect.no=4, ct.min=2) {
 
 	#
 	# Returns:
-	#   a list that contains:
-	#      gmpr： the GMPR size factors for all samples; Samples with distinct sets of features will be output as NA.
-	#      nss:   number of samples with significant sharing (> intersect.no) including itself
+	#   a vector of the size factors with attribute 'NSS'. Samples with distinct sets of features will be output as NA.
+	#         NSS:   number of samples with significant sharing (> intersect.no) including itself
 	
 	# mask counts < ct.min
 	comm[comm < ct.min] <- 0
