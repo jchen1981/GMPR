@@ -8,13 +8,13 @@
 
 require(matrixStats)
 
-GMPR <- function (comm, intersect.no=4, ct.min=2) {
+GMPR <- function (comm, intersect.no=10, ct.min=1) {
 	# Computes the GMPR size factor
 	#
 	# Args:
 	#   comm: a matrix of counts, row - features (OTUs, genes, etc) , column - sample
 	#   intersect.no: the minimum number of shared features between sample pair, where the ratio is calculated
-	#   ct.min: the minimum number of counts required to calculate ratios （Empirical study found ct.min=2-4 is suitable)
+	#   ct.min: the minimum number of counts required to calculate ratios
 
 	#
 	# Returns:
