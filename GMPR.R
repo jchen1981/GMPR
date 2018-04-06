@@ -2,13 +2,13 @@
 # Version: 0.1
 # Authors: Jun Chen (chen.jun2@mayo.edu)
 # Date: 2017/02/07
-# Description: The function calculates the normalizing factors for microbiome sequencing data or generally zeroinflated sequencing data. 
-# The size factors can be used as offsets in count-based regression models or as devisors to produce normalized data
+# Description: The function calculates the normalizing factors for microbiome sequencing data or, more generally, zeroinflated sequencing data. 
+# The size factors can be used as offsets in count-based regression models or as divisors to produce normalized data
 
 
 require(matrixStats)
 
-GMPR <- function (comm, intersect.no=10, ct.min=1) {
+GMPR <- function (comm, intersect.no = 10, ct.min = 1, trace = TRUE) {
 	# Computes the GMPR size factor
 	#
 	# Args:
@@ -28,7 +28,7 @@ GMPR <- function (comm, intersect.no=10, ct.min=1) {
 		colnames(comm) <- paste0('S', 1:ncol(comm))
 	}
 	
-	cat('Begin GMPR size factor calculation ...\n')
+	if (trace) cat('Begin GMPR size factor calculation ...\n')
 	
 	comm.no <- numeric(ncol(comm))
 	gmpr <- sapply(1:ncol(comm),  function(i) {		
@@ -63,8 +63,8 @@ GMPR <- function (comm, intersect.no=10, ct.min=1) {
 				'You may also consider decreasing the minimum number of intersecting taxa and rerun the procedure!\n'))
 	}
 	
-	cat('Completed!\n')
-	cat('Please watch for the samples with limited sharing with other samples based on NSS! They may be outliers! \n')
+	if (trace) cat('Completed!\n')
+	if (trace) cat('Please watch for the samples with limited sharing with other samples based on NSS! They may be outliers! \n')
 	names(gmpr) <- names(comm.no) <- colnames(comm)
 	
 	attr(gmpr, 'NSS') <- comm.no
