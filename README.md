@@ -1,4 +1,4 @@
-# GMPR
+# GMPR is now integrated into the CRAN GUniFrac package (https://cran.r-project.org/web/packages/GUniFrac/index.html). Please use the CRAN version. 
 Calculate the normalizing factors for zeroinflated sequencing data such as microbiome sequencing data
 
 GMPR.R - R function for calculating the GMPR size factors, will be slow if sample size is more than 1,000.
